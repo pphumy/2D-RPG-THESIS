@@ -20,4 +20,4 @@ MonoBehaviour:
   CurrentExp: 0
   NextLevelExp: 100
   InitialNextLevelExp: 100
-  ExpMultiplier: 0
+  ExpMultiplier: 50
