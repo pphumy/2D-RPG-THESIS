@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     private readonly int MoveY = Animator.StringToHash("MoveY");
     private readonly int Moving = Animator.StringToHash("Moving");
     private readonly int Dead = Animator.StringToHash("Dead");
+    private readonly int Revive = Animator.StringToHash("Revive");
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,5 +30,10 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat(MoveX, dir.x);
         animator.SetFloat(MoveY, dir.y);
     }
-        
+    
+    public void OnInit()
+    {
+        SetMovingAnimation(Vector2.down);
+        animator.SetTrigger(Revive);
+    }
 }
