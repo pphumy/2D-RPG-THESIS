@@ -41,9 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 1106167439
+    locked: 0
+  - name: Prop
+    uniqueID: 2758916663
+    locked: 0
   - name: Player
     uniqueID: 1818067927
     locked: 0
   - name: UI
     uniqueID: 314104949
+    locked: 0
+  - name: Tree obs
+    uniqueID: 991808063
     locked: 0
