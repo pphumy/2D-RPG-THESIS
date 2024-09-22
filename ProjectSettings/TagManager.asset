@@ -44,6 +44,9 @@ TagManager:
   - name: Floor
     uniqueID: 1106167439
     locked: 0
+  - name: TreeDeco
+    uniqueID: 1006428393
+    locked: 0
   - name: Prop
     uniqueID: 2758916663
     locked: 0
