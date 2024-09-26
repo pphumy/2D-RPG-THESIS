@@ -63,3 +63,6 @@ TagManager:
   - name: Tree obs
     uniqueID: 991808063
     locked: 0
+  - name: Door
+    uniqueID: 1504387475
+    locked: 0

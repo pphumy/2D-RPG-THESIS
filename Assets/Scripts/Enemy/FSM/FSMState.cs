@@ -18,17 +18,15 @@ public class FSMState
 
     private void ExecuteTransitions(EnemyBrain enemyBrain)
     {
-        if(Transitions == null || Transitions.Length <= 0)
-        {
-            return;
-        }
-
+        if (Transitions == null || Transitions.Length <= 0) return;
+        
         for(int i=0; i< Transitions.Length; i++)
         {
             bool value = Transitions[i].Decision.Decide();
             if (value)
             {
                 enemyBrain.ChangeState(Transitions[i].TrueState);
+                Debug.Log("change");
             }
             else
             {
