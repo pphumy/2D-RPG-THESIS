@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 1654630463920349085}
   - component: {fileID: 6193199776896919099}
   - component: {fileID: 7550317236022392249}
+  - component: {fileID: 2173404525789181921}
   - component: {fileID: 3520667967036995696}
   - component: {fileID: 3827234110662966000}
+  - component: {fileID: 4925845988977096669}
   m_Layer: 6
   m_Name: Enemy_Reptile
   m_TagString: Enemy
@@ -196,11 +198,21 @@ MonoBehaviour:
       TrueState: Chase
       FalseState: 
   - ID: Chase
-    Actions: []
+    Actions:
+    - {fileID: 2173404525789181921}
     Transitions:
     - Decision: {fileID: 3827234110662966000}
       TrueState: 
-      FalseState: Wander
+      FalseState: Patrol
+    - Decision: {fileID: 4925845988977096669}
+      TrueState: Attack
+      FalseState: 
+  - ID: Attack
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 4925845988977096669}
+      TrueState: 
+      FalseState: Chase
 --- !u!114 &7550317236022392249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +230,19 @@ MonoBehaviour:
   - {x: 7, y: 0, z: 0}
   - {x: 7, y: 5, z: 0}
   - {x: 2, y: 5, z: 0}
+--- !u!114 &2173404525789181921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055894859973736112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a413b34e5fdf3e8459c58f3396fa2bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 1.8
 --- !u!114 &3520667967036995696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +269,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &4925845988977096669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055894859973736112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872afc3b458c9b458d2c16a07463448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
   playerMask:
     serializedVersion: 2
     m_Bits: 128

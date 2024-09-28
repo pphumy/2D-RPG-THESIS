@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3686693219532518615}
   - component: {fileID: 8522738365502204181}
   - component: {fileID: -1083507955262337719}
+  - component: {fileID: 767343906269893844}
+  - component: {fileID: 8374444113453035706}
   m_Layer: 6
   m_Name: Enemy_Racoon
   m_TagString: Enemy
@@ -185,9 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f4a0ec96370b34e9be4a2e8f834a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSate: WonderState
+  initSate: Wander
   states:
-  - ID: WonderState
+  - ID: Wander
     Actions:
     - {fileID: 8522738365502204181}
     Transitions:
@@ -195,8 +197,21 @@ MonoBehaviour:
       TrueState: Chase
       FalseState: 
   - ID: Chase
+    Actions:
+    - {fileID: 767343906269893844}
+    Transitions:
+    - Decision: {fileID: -1083507955262337719}
+      TrueState: 
+      FalseState: Wander
+    - Decision: {fileID: 8374444113453035706}
+      TrueState: Attack
+      FalseState: 
+  - ID: Attack
     Actions: []
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 8374444113453035706}
+      TrueState: 
+      FalseState: Chase
 --- !u!114 &8522738365502204181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +240,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &767343906269893844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685169932165269383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a413b34e5fdf3e8459c58f3396fa2bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 1.8
+--- !u!114 &8374444113453035706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685169932165269383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872afc3b458c9b458d2c16a07463448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
   playerMask:
     serializedVersion: 2
     m_Bits: 128

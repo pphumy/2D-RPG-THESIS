@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3661161467623853897}
   - component: {fileID: 941038462049436322}
   - component: {fileID: 5856534279406503536}
+  - component: {fileID: 4751793635627340445}
+  - component: {fileID: 9173933580819527212}
   m_Layer: 6
   m_Name: Enemy_Mushroom
   m_TagString: Enemy
@@ -195,11 +197,21 @@ MonoBehaviour:
       TrueState: Chase
       FalseState: 
   - ID: Chase
-    Actions: []
+    Actions:
+    - {fileID: 4751793635627340445}
     Transitions:
     - Decision: {fileID: 5856534279406503536}
       TrueState: 
       FalseState: WanderState
+    - Decision: {fileID: 9173933580819527212}
+      TrueState: Attack
+      FalseState: 
+  - ID: Attack
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 9173933580819527212}
+      TrueState: 
+      FalseState: Chase
 --- !u!114 &941038462049436322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +240,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &4751793635627340445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405595286291494916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a413b34e5fdf3e8459c58f3396fa2bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 1.8
+--- !u!114 &9173933580819527212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405595286291494916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872afc3b458c9b458d2c16a07463448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
   playerMask:
     serializedVersion: 2
     m_Bits: 128
