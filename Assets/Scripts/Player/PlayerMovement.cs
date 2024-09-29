@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if(stats.Health <= 0f)
         {
-            TakeDamage(1f);
+            PlayerDead();
         }
         ReadMovementInput();
     }
@@ -70,9 +70,12 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        if (stats.Health <= 0f) return;
         stats.Health -= amount;
+        DamageManager.Instance.ShowDamageText(amount, transform);
         if (stats.Health <= 0f)
         {
+            stats.Health = 0f;
             PlayerDead();
         }
     }
