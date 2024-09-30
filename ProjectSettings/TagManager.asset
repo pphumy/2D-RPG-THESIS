@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Enemy
   - Player
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -57,12 +57,15 @@ TagManager:
   - name: Player
     uniqueID: 1818067927
     locked: 0
-  - name: UI
-    uniqueID: 314104949
-    locked: 0
   - name: Tree obs
     uniqueID: 991808063
     locked: 0
   - name: Door
     uniqueID: 1504387475
+    locked: 0
+  - name: Projectile
+    uniqueID: 942481333
+    locked: 0
+  - name: UI
+    uniqueID: 314104949
     locked: 0

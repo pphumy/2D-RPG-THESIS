@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     [SerializeField] private Rigidbody2D rb2D;
 
 
+    public Vector2 MoveDirection => moveDirection;
 
     private PlayerAnimation playerAnimation;
     private PlayerActions actions;

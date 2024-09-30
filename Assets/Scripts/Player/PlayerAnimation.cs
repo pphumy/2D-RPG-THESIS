@@ -11,6 +11,7 @@ public class PlayerAnimation : MonoBehaviour
     private readonly int Moving = Animator.StringToHash("Moving");
     private readonly int Dead = Animator.StringToHash("Dead");
     private readonly int Revive = Animator.StringToHash("Revive");
+    private readonly int Attacking = Animator.StringToHash("Attacking");
 
     // Start is called before the first frame update
     private void Awake()
@@ -31,6 +32,11 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat(MoveY, dir.y);
     }
     
+    public void SetAtkAnimation(bool value)
+    {
+        animator.SetBool(Attacking, value);
+        
+    }
     public void OnInit()
     {
         SetMovingAnimation(Vector2.down);
